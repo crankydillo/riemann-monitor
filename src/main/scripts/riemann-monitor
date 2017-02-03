@@ -1,0 +1,16 @@
+#!/bin/bash
+cygwin=false;
+case "`uname`" in
+    CYGWIN*) cygwin=true ;;
+esac
+
+APP_HOME=`dirname $0`/..
+CP=$APP_HOME/lib/*
+
+if $cygwin; then
+    CP=`cygpath --windows --path "$CP;"`
+    APP_HOME=`cygpath --windows --path "$APP_HOME"`
+fi
+
+java -classpath "$CP" \
+    org.beeherd.riemann.monitor.App "$@"
