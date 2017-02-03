@@ -11,6 +11,18 @@ Submitted [this issue](https://github.com/samn/run-and-report/issues/5).
 
 A big issue will be how much OS resources we use..
 
+# Install
+
+I only have a snapshot deployed.  Instructions for linux/mac.  Install Java 8.
+Have write permisions to `/opt`.
+
+```sh
+curl -L "http://oss.sonatype.org/service/local/artifact/maven/content?r=snapshots&g=org.beeherd.riemann&a=riemann-monitor&e=zip&v=LATEST" > riemann-monitor-latest-snapshot.zip
+unzip riemann-monitor-latest-snapshot.zip -d /opt/
+export PATH=/opt/riemann-monitor-0.0.1-SNAPSHOT/bin:$PATH
+riemann-monitor
+```
+
 # Development
 
 ### Need a riemann server?
