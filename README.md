@@ -20,7 +20,7 @@ Do what you want, but you can use [this](docker/riemann-server).  Install docker
 ```sh
 cd docker/riemann-server
 ./build.sh
-./run.sh riemann-cli-monitor
+./run.sh
 ```
 
 ### Building
