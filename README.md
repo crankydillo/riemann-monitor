@@ -13,7 +13,7 @@ A big issue will be how much OS resources we use..
 
 # Development
 
-### Need a riemann server
+### Need a riemann server?
 
 Do what you want, but you can use [this](docker/riemann-server).  Install docker.  Then
 
@@ -42,3 +42,8 @@ mvn exec:java -Dexec.args="localhost 5555 riemann-cli-monitor 5 -- sleep 30"
 
 I often use SBT if I'm doing a vim+tmux thing.  It's there if you want it.  At
 time of writing, I'm using sbt 0.13.13.
+
+# On riemann
+
+[Good article](https://kartar.net/2015/01/using-riemann-for-fault-detection/)
+on how riemann uses a push-based system for determining system anomalies.
