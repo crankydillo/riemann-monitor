@@ -9,8 +9,10 @@ object App {
 
   def main(args: Array[String]): Unit = {
     val parsedArgs = args.toList match {
-      case h :: p :: s :: pp :: "--" :: rest => Try { (h, p.toInt, s, pp.toInt, rest) }
-      case _ => Failure(new Exception("Invalid Usage"))
+      case host :: port :: svc :: poll :: "--" :: cmd => 
+        Try { (host, port.toInt, svc, poll.toInt, cmd) }
+      case _ => 
+        Failure(new Exception("Invalid Usage"))
     }
 
     parsedArgs match {
