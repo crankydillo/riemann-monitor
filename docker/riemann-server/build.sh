@@ -1,1 +1,1 @@
-docker build -t riemann-server .
+docker build -t riemann .
