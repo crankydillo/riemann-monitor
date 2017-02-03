@@ -9,6 +9,8 @@ functionality, I'm assuming python would have a much smaller footprint than a
 JVM application, which is a very desirable feature for this type of app.
 Submitted [this issue](https://github.com/samn/run-and-report/issues/5).
 
+A big issue will be how much OS resources we use..
+
 # Development
 
 ### Need a riemann server
