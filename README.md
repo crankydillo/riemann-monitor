@@ -26,14 +26,16 @@ cd docker/riemann-server
 ### Building
 
 ```sh
-mvn install
+mvn compile
 ```
 
 ### Running
 
+Assuming you have riemann listening to port 5555 on localhost.  The command assumes bash/sh/etc (something that has `sleep 30`).
+
 ```sh
 mvn compile
-mvn exec:java
+mvn exec:java -Dexec.args="localhost 5555 riemann-cli-monitor 5 -- sleep 30"
 ```
 
 ### SBT
