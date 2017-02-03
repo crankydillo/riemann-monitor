@@ -39,7 +39,8 @@ object App {
               .send().deref(5000, java.util.concurrent.TimeUnit.MILLISECONDS)
           } catch {
             case e: Exception => 
-              // Are we bringing in a logging lib?  Is there a point in trying?
+              // Are we bringing in a logging lib?  Is there a point in
+              // re-trying given that we loop the event?
               println(e.getMessage)
           } finally {
             c.close()
