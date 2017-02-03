@@ -60,6 +60,6 @@ object App {
   }
 
   def printUsage(): Unit = {
-    println("Usage: <cmd> <riemann-host> <riemann-port> <riemann-service-name> -- <cmd>")
+    println("Usage: <cmd> <riemann-host> <riemann-port> <riemann-service-name> <poll-period> -- <cmd>")
   }
 }
