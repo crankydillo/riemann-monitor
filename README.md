@@ -1,6 +1,6 @@
 # riemann-monitor
 
-Submits riemann events as long as the process it launches is running.
+Submits [riemann](http://riemann.io) events as long as the process it launches is running.
 
 I should work on a fork of [this
 project](https://github.com/samn/run-and-report); however, I couldn't get it to
