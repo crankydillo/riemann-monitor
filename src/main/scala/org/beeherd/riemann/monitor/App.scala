@@ -10,13 +10,18 @@ object App {
   def main(args: Array[String]): Unit = {
     val parsedArgs = args.toList match {
       case host :: port :: svc :: poll :: "--" :: cmd => 
-        Try { (host, port.toInt, svc, poll.toInt, cmd) }
+        Try { 
+          require(!cmd.isEmpty) // cmd is a list
+          (host, port.toInt, svc, poll.toInt, cmd) 
+        }
       case _ => 
         Failure(new Exception("Invalid Usage"))
     }
 
     parsedArgs match {
       case Success((riemannHost, riemannPort, riemannService, pollPeriodInSecs, cmd)) =>
+
+        val timePadInSecs = 10.0f
 
         def sendRiemannEvent() = {
           // should I leave this client open, especially if the poll period is
@@ -25,8 +30,12 @@ object App {
           // Use scala-arm?  If not, explain why deviating from scala.util.Try
           try {
             c.connect()
-            // what is this deref thing?
-            c.event().service(riemannService).state("running").tags(cmd.mkString(" "))
+            c.event()
+              .service(riemannService)
+              .state("running")
+              .description(cmd.mkString(" "))
+              .tags(cmd.head)
+              .ttl(pollPeriodInSecs + timePadInSecs)
               .send().deref(5000, java.util.concurrent.TimeUnit.MILLISECONDS)
           } catch {
             case e: Exception => 
