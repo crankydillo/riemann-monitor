@@ -83,7 +83,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.beeherd.weather.cli.WeatherComApp</mainClass>
+                            <mainClass>org.beeherd.riemann.monitor.App</mainClass>
                         </manifest>
                     </archive>
                     <descriptors>
