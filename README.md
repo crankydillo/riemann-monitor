@@ -1,4 +1,4 @@
-# riemann-monitor
+# Introduction
 
 Submits [riemann](http://riemann.io) events as long as the process it launches is running.
 
